@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tic.css">
+    <title>Document</title>
+</head>
+<body>
+    <container class="container">
+        <div class="game">
+    <button class="btn" id="clk"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+        </div>
+    </container>
+    <button class="reset" id="reset" onclick="reset()">Reset</button>
+    <div id="result" class="result"></div>   
+</body>
+<script>
+    let turn=true;
+
+    let winPatterns=[
+     [0,1,2],
+     [3,4,5],
+     [6,7,8],
+     [0,3,6],
+     [1,4,7],
+     [2,5,8],
+     [0,4,8],
+     [2,4,6],
+    ];
+
+    let result=document.getElementById("result");
+    let boxes=document.querySelectorAll('.btn');
+    boxes.forEach(button => {
+        button.addEventListener("click",gameBtn)
+    });
+
+     function gameBtn(event)
+     {
+      const button=event.target;
+      if(button.innerText===""){
+      if(turn){
+        button.style.color="red"
+        button.innerText="X";
+        turn=false;
+      }
+      else{
+        button.innerText="O";
+          button.style.color="blue"
+        turn=true;
+      }
+      checkWinner();
+    }
+      }
+      
+      function reset() {
+        boxes.forEach(button=>{
+            if(button.innerText!=""){
+                button.innerText="";
+                button.style.color="white"
+                result.innerText="";
+                button.classList.remove("winner");  
+        }
+        button.disabled=false;
+        turn=true
+        })
+    }
+
+function highlight(pattern){ 
+    boxes[pattern[0]].classList.add("winner");
+    boxes[pattern[1]].classList.add("winner");
+    boxes[pattern[2]].classList.add("winner");
+}
+
+function highlightRemover(pattern){ 
+    boxes[pattern[0]].classList.remove("winner");
+    boxes[pattern[1]].classList.remove("winner");
+    boxes[pattern[2]].classList.remove("winner");
+}
+
+      function checkWinner()
+      {
+            for (let pattern of winPatterns){
+        let posVal1=boxes[pattern[0]].innerText;
+        let posVal2=boxes[pattern[1]].innerText;
+        let posVal3=boxes[pattern[2]].innerText;
+           if(posVal1!="" && posVal1===posVal2 && posVal2===posVal3)
+        {
+            console.log("winner");
+            result.innerText=`${posVal1} win!`;
+            boxesDisabled();
+            highlight(pattern);
+        }
+
+        
+        let allField=Array.from(boxes).every(button=>{
+           return button.innerText!=="";
+        });
+        if(allField){
+            result.innerText="DRAW";
+        }
+           }
+          
+        }
+
+function boxesDisabled(){
+boxes.forEach(button=>{
+    button.disabled=true;
+});
+}
+</script>
+
+</html>
