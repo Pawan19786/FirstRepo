@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rps.css">
+    <title>Document</title>
+</head>
+<body>
+    <button class="set" onclick="set()">set target</button>
+
+    <select class="points" id="#pointts">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        </select>
+
+    <div class="container">
+    <button class="game" onclick="btn('rock')" style="background:url(rock.jpeg); background-size: cover;">rock</button>
+    <button class="game" onclick="btn('paper')"style="background-color: blanchedalmond;background:url(paper.jpeg); background-size: cover; ">paper</button>
+    <button class="game" onclick="btn('scissor')" style="background-color: rgb(255, 52, 21);background:url(scissor.jpeg); background-size: cover;">secior</button>
+    </div>
+
+    <p class="you">you:</p><div  class="user"></div>
+
+    <p class="cpu">computer:</p><div class="comp"></div>
+    <div class="result">result</div>
+    <button class="reset" onclick="reset()">reset</button>
+        <script>
+        let game=document.querySelectorAll('.game');
+        game.forEach(button =>{
+        button.addEventListener("click",comp);
+    });
+
+    let chooseCpu;
+    let chooseUser;
+    let resultMatch;
+    let count=1;
+
+    let item=['rock','paper','scissor'];
+
+    function comp(){
+    chooseCpu=document.querySelector('.comp');
+    let cpuItem=item[Math.floor(Math.random()*item.length)]
+    chooseCpu.innerText=`${cpuItem }`;
+    result();
+    }
+
+    function btn(item){
+        chooseUser=document.querySelector('.user');
+        chooseUser.innerText=`${item}`;   
+
+    }
+
+    function result(){
+     resultMatch=document.querySelector('.result');
+    if (chooseUser.innerText === "rock" && chooseCpu.innerText === "scissor") {
+        resultMatch.innerText = "You win!!! congratulation";
+    } else if (chooseUser.innerText === "scissor" && chooseCpu.innerText === "paper") {
+        resultMatch.innerText = "You win!!! congratulation";
+    } else if (chooseUser.innerText === "paper" && chooseCpu.innerText === "rock") {
+        resultMatch.innerText = "You win!!! congratulation";
+    } else if (chooseUser.innerText === chooseCpu.innerText) {
+        resultMatch.innerText = "It's a draw!";
+    } else {
+        resultMatch.innerText = "OOPS!!! You Lose!";
+    }
+}
+
+function reset(){
+  game.forEach(button=>{
+    chooseCpu.innerText="";
+    chooseUser.innerText="";
+    resultMatch.innerText="";
+  })
+
+  function set(){
+    let pts=document.getElementById('#points');
+    pts.innerText="hii"
+  }
+}
+</script>
+</body>
+</html>

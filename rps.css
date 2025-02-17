@@ -1,0 +1,120 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgb(232, 154, 220);
+}
+.container{
+    position: relative;
+    border:none;
+    justify-content: center;
+    display: flex;
+    flex: wrap;
+    column-gap: 9ch;
+    top:88px;
+    width: 922px;
+    left: 244px;
+ 
+}
+
+.game{
+    height: 250px;
+    width:250px;
+    border-radius: 50%;
+    border: solid 2px;
+    font-family: cursive;
+    background-color: rgb(78, 78, 82);
+    top: 100px;
+    gap: 22px;
+    cursor: pointer;
+}
+
+.user{
+    position:relative;
+    border: solid 2px;
+    width:90px;
+    top:181px;
+    left:460px;
+    border:none;
+    font-size: 33px;
+}
+
+.comp{
+    position: absolute;
+    border: solid 2px;
+    width:90px;
+    height: 44px;
+    top:510px;
+    left:1139px;
+    border:none;
+    font-size: 33px;
+
+}
+
+.result{
+    position: relative;
+    border: solid 2px;
+    width:90px;
+    height: 44px;
+    top:150px;
+    left:700px;
+    border: none;
+    background-color: blue;
+    background-size: 10%;
+    border-radius: 20px;
+}
+
+.set{
+    position: relative;
+    border:solid 2px;
+    width:122px;
+    left:700px;
+    border: none;
+    font-family:algerian;
+    font-size:20px;
+}
+
+.reset{
+    position:relative;
+    top:265px;
+    left: 720px;px;
+    color: red;
+    background-color: black;
+    width: 64px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.points{
+   position: relative;
+   left: 615px;
+   top: 22px;
+}
+
+
+
+.you{
+    position: relative;
+     top: 220px; 
+     left:375px;
+     font-size: 33px;
+}
+
+.cpu{
+    position:absolute;
+     top: 510px;
+      left:960px;
+      font-size: 33px;
+}
+
+.set{
+    border-radius: 20px;
+    border: solid 3px;
+}
+
+.set:hover{
+    background-color: blue;
+    cursor:pointer;
+}
