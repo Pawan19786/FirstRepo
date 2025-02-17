@@ -5,6 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="tic.css">
     <title>Document</title>
+    <style>
+        
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(54, 49, 49);
+    text-align: center;
+}
+
+.btn1{
+    color:red;
+    box-shadow: inset 2px 2px 11px rgb(9, 3, 201);
+    height: 80px;
+    width: 80px;
+    font-size:33px;
+    background-color: rgb(31, 28, 28);
+    border-color: rgb(255, 255, 255);
+    filter:drop-shadow(5px 4px 8px rgb(0, 17, 201));
+
+    }
+
+.btn{
+    color:rgb(255, 255, 255);
+    /*box-shadow: inset 2px 2px 11px rgb(9, 3, 201);*/
+    height: 120px;
+    width: 120px;
+    font-size:33px;
+    background-color: rgb(22, 20, 28);
+    border-color: rgb(255, 255, 255);
+    filter:drop-shadow(4px 3px 10px rgb(33, 0, 201));
+    border: solid 3px;
+    box-shadow: 0px 0px 1px rgb(72, 0, 255),
+     0px 0px 2px rgb(38, 0, 255),
+     0px 0px 5px rgb(8, 0, 255),
+     0px 0px 10px rgb(76, 0, 255);
+    }
+
+    .btn.X{
+        color: red;
+    }
+
+    .btn.O{
+        color:blue;
+    }
+
+    .btn.winner{
+        color:rgb(255, 255, 255);
+       filter: blur(2.5px);
+       height: 120px;
+       
+    }
+
+.container{
+    height: 100vh;
+    width: 55vh;
+    border: solid black 5px;
+}
+
+.game{
+    position: absolute;
+    left: 600px;
+    bottom: 130px;
+    height:70vh;
+    width:75vmin;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 27px;
+    column-gap: 28px;
+}
+
+.reset{
+    position:absolute;
+    height:45px;
+    width:110px;
+    bottom:78px;
+    left:750px;
+    background-color: rgb(235, 22, 22);
+    border-radius: 20px;
+    font-family: cursive;
+    font-size: 27px;
+}
+
+.result{
+    position:absolute;
+    background-color: rgba(130, 252, 0, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: 2px 2px 50px blue ;
+    height: 30px;
+    width: 220px;
+    bottom:18px ;
+    left: 200px;
+    font-weight: bold;
+    font-size: 45px;
+    animation: animat 10s linear  infinite;
+}
+
+@keyframes animat{
+    to{
+        transform: translate(1145px);
+    }
+    from{
+        transform: translate(-1000px);
+    }
+}
+        
+    </style>
 </head>
 <body>
     <container class="container">
