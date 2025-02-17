@@ -3,8 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pc.css">
     <title>Document</title>
+    <style>
+        .border{
+    position: absolute;
+    border: solid 3px;
+    border-radius: 20px;
+    height: 465px;
+    background-color: rgb(37, 18, 209);
+    width: 310px;
+    box-shadow: 5px 2px 4px rgb(71, 72, 72);
+    z-index: -3px;
+}
+
+.k-k{
+    position:relative;
+    top:133px;
+    width: 2;
+}
+
+.num1{
+    position:relative;
+    top:2px;
+    right: -1%;
+    width: 96%;
+    border-radius: 20px;
+    height: 147px;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    font-size:25px;
+    color: red;
+    z-index:-2px;
+    transition: ease-in-out 2s;
+}
+
+.b1{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:2px;
+    border-radius: 20px;
+    top: -99px;
+    background-color: gold;
+}
+
+.b2{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:77px;
+    border-radius: 20px;
+    top: -99px;
+    background-color: gold;
+}
+
+.b3{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:154px;
+    border-radius: 20px;
+    top: -99px;
+    background-color: gold;
+}
+
+.add{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:234px;
+    border-radius: 20px;
+    top: -45px;
+    background-color: gold;
+}
+
+.b4{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:2px;
+    border-radius: 20px;
+    top:55px;
+    top: -45px;
+    background-color: gold;
+}
+
+.b5{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:77px;
+    border-radius: 20px;
+    top:-45px;
+    background-color: gold;
+}
+
+.b6{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:154px;
+    border-radius: 20px;
+    top:-45px;
+    background-color: gold;
+}
+
+.sub{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:234px;
+    border-radius: 20px;
+    top:10px;
+    background-color: gold;
+}
+
+.b7{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:2px;
+    border-radius: 20px;
+    top: 10px;
+    background-color: gold;
+}
+
+.b8{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:77px;
+    border-radius: 20px;
+    top: 10px;
+    background-color: gold;
+}
+
+.b9{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:154px;
+    border-radius: 20px;
+    top: 10px;
+    background-color: gold;
+}
+
+.b0{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:2px;
+    border-radius: 20px;
+    top: 66px;
+    background-color: gold;
+}
+
+.mult{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:154px;
+    border-radius: 20px;
+    top: 66px;
+    background-color: gold;
+}
+
+.divison{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:77px;
+    border-radius: 20px;
+    top: 66px;
+    background-color: gold;
+}
+
+.clear{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:234px;
+    border-radius: 20px;
+    top: -99px;
+    background-color: gold;
+}
+
+.calculateResult{
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:234px;
+    border-radius: 20px;
+    top: 66px;
+    font-size-adjust:0.8;
+    background-color: gold;
+}
+
+.point{
+    font-size-adjust:1;
+    position: absolute;
+    width: 66px;
+    height: 44px;
+    left:2px;
+    border-radius: 20px;
+    top: 122px;
+    text-align: center;
+    background-color: rgb(255, 237, 41);
+}
+.lone{
+    position: relative;
+    top: 40px;
+    z-index:1;
+    border: solid black 2px;
+    width: 300px;
+    
+}
+
+.cut{
+    position:absolute;
+    left: 77px;
+    bottom: -147px;
+    height: 44px;
+    width: 66px;
+    border-radius: 20px;
+    background-color: gold;
+    }
+
+    @keyframes anime{
+        from{
+            transform: rotate(20deg);
+
+        }
+        to{
+            transform: rotate(200deg);
+        }
+    }
+
+    .video{
+        position:absolute;
+        left: 97%;
+        height: 22px;
+        width: 2px;
+    }
+    </style>
 </head>
 <body>
     <border class="border">
@@ -33,6 +274,29 @@
           </div>
     </border>
     <script src="pc.js">
+        function appendToDisplay(value) {
+    const display = document.getElementById('display');
+    display.value += value;
+}
+
+
+
+function clearDisplay() {
+    const display = document.getElementById('display');
+    display.value = '';
+}
+
+function calculateResult() {
+    const display = document.getElementById('display');
+    try {
+        // Use eval to calculate the expression
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
+
+
     </script>
 </body>
 </html>
